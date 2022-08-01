@@ -2,10 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 resource "aws_instance" "example" {
-  ami           = "ami-052efd3df9dad4825"
-  instance_type = "t2.micro"
+  ami                    = "ami-052efd3df9dad4825"
+  instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
-  
+
   user_data = <<-EOF
 			  #!/bin/bash
 			  echo "Hello, World" > index.html
@@ -25,5 +25,9 @@ resource "aws_security_group" "instance" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+
+
+
 
 
